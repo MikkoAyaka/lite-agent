@@ -1,4 +1,3 @@
-from lite_agent.api import search_api
 from lite_agent.settings import neo4j_db, chroma_db, sql_query_engine, bing_search_api
 from llama_index.core.tools import QueryEngineTool, FunctionTool
 import datetime
@@ -83,7 +82,7 @@ neo4j_tool = QueryEngineTool.from_defaults(
         Analyze IP nodes with additional details such as severity, confidence level, and domain associations to prioritize security responses.
         Query Cypher: MATCH (n) WHERE n.ip IS NOT NULL AND (n.severity IS NOT NULL OR n.domain_count IS NOT NULL) RETURN n.ip, n.severity, n.confidence_level, n.domain_count LIMIT 20
 
-    These prompts guide the agent to construct and execute specific Neo4j queries that align with the structure and needs of the database. By using these examples, the intelligent agent can generate accurate and contextually appropriate queries for various analysis scenarios.
+    These prompts guide the component to construct and execute specific Neo4j queries that align with the structure and needs of the database. By using these examples, the intelligent component can generate accurate and contextually appropriate queries for various analysis scenarios.
     """
 )
 chroma_tool = QueryEngineTool.from_defaults(

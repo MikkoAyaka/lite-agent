@@ -10,8 +10,8 @@ from llama_index.graph_stores.neo4j import Neo4jGraphStore
 from llama_index.llms.openai import OpenAI
 from sqlalchemy import create_engine, MetaData
 
-from lite_agent.api.search_api import BingSearchAPI
-from lite_agent.api.chroma_base import ChromaVectorStore
+from lite_agent.component.search_api import BingSearchAPI
+from lite_agent.lib.chroma_base import ChromaVectorStore
 
 # 加载对应环境的环境变量
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

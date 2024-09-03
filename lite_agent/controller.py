@@ -6,8 +6,8 @@ from llama_index.core.base.llms.types import MessageRole, ChatMessage
 from starlette.middleware.cors import CORSMiddleware
 
 from llama_index.core.agent import ReActAgent
-from lite_agent.agent.memory import get_memory
-from lite_agent.agent.tools import llm_tool_kits, platformContext
+from lite_agent.component.memory import get_memory
+from lite_agent.component.tools import llm_tool_kits, platformContext
 from lite_agent.settings import llm, zk_host, zk_port
 
 agent = ReActAgent.from_tools(llm_tool_kits, llm=llm, verbose=True)
@@ -24,7 +24,7 @@ app.add_middleware(
 @app.post("/agentChat")
 async def agent_chat(user_id: int = Body(..., embed=True, alias="userId"), msg: str = Body(..., embed=True)) -> str:
     """
-    用户与 agent 智能体的对话接口
+    用户与 component 智能体的对话接口
     """
     long_term_memory = get_memory(user_id, long_term=True)
     short_term_memory = get_memory(user_id, long_term=False)

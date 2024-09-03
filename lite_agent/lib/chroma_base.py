@@ -119,7 +119,7 @@ class ChromaVectorStore(BasePydanticVectorStore):
     k most similar nodes.
 
     Args:
-        chroma_collection (chromadb.api.models.Collection.Collection):
+        chroma_collection (chromadb.lib.models.Collection.Collection):
             ChromaDB collection instance
 
     Examples:
